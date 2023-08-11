@@ -17,6 +17,9 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
+            var arr = new char[] {'1', '2', '3', '4', '5', '6', 'a', 'b', 'c'};
+            var numbers = new List<int>();
+            //var str = "";
 
 
 
@@ -25,6 +28,23 @@ namespace ExceptionHandlingExercise
             // Make a foreach loop to iterate through your character array
             
                 // Now create a try catch
+            foreach(var c in arr)
+            {
+                try
+                {
+                    string str = c.ToString();
+                    int number = int.Parse(str);
+                    numbers.Add(number);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine($" To parse: {c}");
+                }
+                catch (Exception e) 
+                { 
+                    Console.WriteLine(e.Message);
+                }
+            }
                 
                 
                     // Inside your try block
@@ -39,10 +59,10 @@ namespace ExceptionHandlingExercise
                 
             
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            foreach (var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
